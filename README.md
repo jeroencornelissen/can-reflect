@@ -1,5 +1,7 @@
 # can-operate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/canjs/can-operate.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/canjs/can-operate.png?branch=master)](https://travis-ci.org/canjs/can-operate)
 
 operate on unknown data types
