@@ -39,10 +39,46 @@ obj[canSymbol.for("can.setKeyValue")] = function(key, value){
 };
 ```
 
-`can-reflect` organizes it's methods into the following groups:
+@body
 
-- __Type Reflections__ - Determine if an object matches a familiar type to CanJS.
-- __Get/Set Reflections__ - Read and write to objects.
-- __Call Reflections__ - Call functions and function-like objects.
-- __Shape Reflections__ - Perform operations based on multiple values within an object.
-- __Observable Reflections__ - Listen to changes in observable objects.
+The different reflections you can use are grouped by reflection type as follows:
+
+- Type Reflections - Tell you what the value is.
+  - `.isConstructorLike `
+  - `.isFunctionLike`
+  - `.isIteratorLike`
+  - `.isListLike`
+  - `.isMapLike`
+  - `.isMoreListThanMapLike` (lists can often still be maps)
+  - `.isObservableLike`
+  - `.isValueLike`
+  - `.isSymbolLike`
+- Shape Reflections - Give you information about the value.
+  - _own and enumerable_
+    - `.eachIndex`
+	- `.eachKey`
+	- `.each`
+    - `.getOwnEnumerableKeys` (aka `.keys`)
+	- `.toArray`
+  - _own_
+	- `.getOwnKeys`
+	- `.getOwnKeyDescriptor`
+  - _all_ (pending)
+- Getter / Setter Reflections - get or set some value on another value.
+  - `.getKeyValue`, `.setKeyValue`, `.deleteKeyValue` - for maps (`get`, `set`, and `delete` are aliases)
+  - `.getValue`, `.setValue` - for things like computes
+  - `.splice`, `.addKeys(keyValues[,index])`, `.removeKeys(keysOrValues[,index])` (PENDING?)
+- Function Reflections - call functions or create instances
+  - `.call`
+  - `.apply`
+  - `.new`
+- Observe Reflections - listen to when things change
+  - `.onKeyValue`, `.offKeyValue`
+  - `.onKeys` - when anything changes
+  - `.onKeysAdded`, `.onKeysRemoved`
+  - `.getKeyDependencies` - for debugging
+  - `.keyHasDependencies`
+  - `.onValue`, `.offValue`
+  - `.getValueDependencies`
+  - `.valueHasDependencies`
+  - `.onEvent`, `.offEvent` - listen to an event on something
